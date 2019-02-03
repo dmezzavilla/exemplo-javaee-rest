@@ -1,0 +1,18 @@
+
+1 - Instalar o MySQL e usar como usuário e senha "root";
+
+2 - Criar um esquema (deste exemplo "restjavaee");
+
+3 - Criar uma pasta no servidor para incluir o jar e o modules.xml do mysql.
+	3.1. No caminho C:\Servidores\wildfly-14.0.0.Final\modules\system\layers\base\com
+		3.1.1 Criar a pasta "mysql" e uma subpasta "main".
+		3.1.2 Dentro da past main, crie o arquivo module.xml e insira o jar do mysql.
+
+4 - Abrir o standalone.xml em C:\Servidores\wildfly-14.0.0.Final\standalone\configuration e configurar
+    o datasource da aplicação, conforme arquivo de exemplo:
+
+5 - Criar o persistence.xml em main/java/META-INF, conforme exemplo deste projeto.
+    OBS: Caso seja preciso, vá nas propriedades do projeto, projects facets e marque a opção "jpa" para que seja criado o persistence.
+
+6 - Criar o beans.xml (vazio) em main/webapp/WEB-INF, conforme exemplo deste projeto.
+
