@@ -123,38 +123,4 @@ public class Dollar {
         this.create_date = create_date;
     }
 
-    public Dollar(String varBid, String code, String codein, String name, String high, String low, String pctChange, String bid, String ask, String timestamp, String create_date) {
-        this.varBid = varBid;
-        this.code = code;
-        this.codein = codein;
-        this.name = name;
-        this.high = high;
-        this.low = low;
-        this.pctChange = pctChange;
-        this.bid = bid;
-        this.ask = ask;
-        this.timestamp = timestamp;
-        this.create_date = create_date;
-    }
-
-    public Dollar() {
-    }
-
-    @Override
-    public String toString() {
-        return "Dollar{" +
-                "id=" + id +
-                ", varBid='" + varBid + '\'' +
-                ", code='" + code + '\'' +
-                ", codein='" + codein + '\'' +
-                ", name='" + name + '\'' +
-                ", high='" + high + '\'' +
-                ", low='" + low + '\'' +
-                ", pctChange='" + pctChange + '\'' +
-                ", bid='" + bid + '\'' +
-                ", ask='" + ask + '\'' +
-                ", timestamp='" + timestamp + '\'' +
-                ", create_date='" + create_date + '\'' +
-                '}';
-    }
 }
