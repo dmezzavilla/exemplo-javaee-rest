@@ -1,4 +1,4 @@
-package com.rest.service;
+package com.rest.controller;
 
 import com.rest.entity.Dollar;
 import com.rest.repository.DollarRepository;
@@ -19,7 +19,7 @@ import java.util.List;
  * @author Daniel Mezzavilla
  */
 @Path("/dollar")
-public class DollarService {
+public class DollarController {
 
     @Inject
     DollarRepository dollarRepository;

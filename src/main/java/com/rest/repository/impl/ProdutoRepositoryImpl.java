@@ -19,17 +19,28 @@ public class ProdutoRepositoryImpl implements ProdutoRepository {
 
     @Transactional
     @Override
-    public void persist(Produto produto) {
+    public Produto persist(Produto produto) {
         em.persist(produto);
-
+        em.flush();
+        return produto;
     }
 
     @Transactional
     @Override
     public List<Produto> findAll() {
-        TypedQuery<Produto> query = em.createQuery("from Produto", Produto.class);
+        String jpql = "FROM Produto";
+        TypedQuery<Produto> query = em.createQuery(jpql, Produto.class);
         return query.getResultList();
 
+    }
+
+    @Override
+    public List<Produto> findLike() {
+        String jpql = "FROM Produto p WHERE p.fabricante LIKE ?1" +
+                "OR p.modelo LIKE ?1" +
+                "OR p.tipo LIKE ?1";
+        TypedQuery<Produto> query = em.createQuery(jpql, Produto.class).setParameter(1, "%To%");
+        return query.getResultList();
     }
 
     @Transactional
@@ -41,8 +52,10 @@ public class ProdutoRepositoryImpl implements ProdutoRepository {
 
     @Transactional
     @Override
-    public void merge(Produto produto) {
+    public Produto merge(Produto produto) {
         em.merge(produto);
+        em.flush();
+        return produto;
     }
 
     @Transactional

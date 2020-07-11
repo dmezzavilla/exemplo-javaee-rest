@@ -1,5 +1,9 @@
 package com.rest.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,6 +13,9 @@ import javax.persistence.Id;
  * @author Daniel Mezzavilla
  */
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Dollar {
 
     @Id
@@ -26,101 +33,5 @@ public class Dollar {
     private String ask;
     private String timestamp;
     private String create_date;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getVarBid() {
-        return varBid;
-    }
-
-    public void setVarBid(String varBid) {
-        this.varBid = varBid;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getCodein() {
-        return codein;
-    }
-
-    public void setCodein(String codein) {
-        this.codein = codein;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getHigh() {
-        return high;
-    }
-
-    public void setHigh(String high) {
-        this.high = high;
-    }
-
-    public String getLow() {
-        return low;
-    }
-
-    public void setLow(String low) {
-        this.low = low;
-    }
-
-    public String getPctChange() {
-        return pctChange;
-    }
-
-    public void setPctChange(String pctChange) {
-        this.pctChange = pctChange;
-    }
-
-    public String getBid() {
-        return bid;
-    }
-
-    public void setBid(String bid) {
-        this.bid = bid;
-    }
-
-    public String getAsk() {
-        return ask;
-    }
-
-    public void setAsk(String ask) {
-        this.ask = ask;
-    }
-
-    public String getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public String getCreate_date() {
-        return create_date;
-    }
-
-    public void setCreate_date(String create_date) {
-        this.create_date = create_date;
-    }
 
 }

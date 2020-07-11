@@ -9,13 +9,15 @@ import java.util.List;
  */
 public interface ProdutoRepository {
 
-    void persist(Produto produto);
+    Produto persist(Produto produto);
 
     List<Produto> findAll();
 
+    List<Produto> findLike();
+
     Produto findById(Long id);
 
-    void merge(Produto produto);
+    Produto merge(Produto produto);
 
     void remove(Long id);
 

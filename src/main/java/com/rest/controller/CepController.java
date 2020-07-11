@@ -1,4 +1,4 @@
-package com.rest.service;
+package com.rest.controller;
 
 import com.rest.entity.Cep;
 import com.rest.repository.CepRepository;
@@ -17,7 +17,7 @@ import javax.ws.rs.core.Response;
  * @author Daniel Mezzavilla
  */
 @Path("/cep")
-public class CepService {
+public class CepController {
 
     @Inject
     CepRepository cepRepository;

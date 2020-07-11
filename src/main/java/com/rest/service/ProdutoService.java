@@ -1,53 +1,22 @@
 package com.rest.service;
 
-import com.rest.entity.Produto;
-import com.rest.repository.ProdutoRepository;
 
-import javax.inject.Inject;
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
+import com.rest.entity.Produto;
+
 import java.util.List;
 
-/**
- * @author Daniel Mezzavilla
- */
-@Path("/produto")
-public class ProdutoService {
+public interface ProdutoService {
 
-    @Inject
-    ProdutoRepository produtoRepository;
+    Produto persist(Produto produto);
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-    public List<Produto> findAll() {
-        return produtoRepository.findAll();
-    }
+    List<Produto> findAll();
 
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")
-    @Produces(MediaType.TEXT_PLAIN)
-    public void persist(Produto produto) {
-        produtoRepository.persist(produto);
-    }
+    List<Produto> findLike();
 
-    @GET
-    @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-    public Produto findById(@PathParam("id") Long id) {
-        return produtoRepository.findById(id);
-    }
+    Produto findById(Long id);
 
-    @PUT
-    @Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")
-    @Produces(MediaType.TEXT_PLAIN)
-    public void merge(Produto produto) {
-        produtoRepository.merge(produto);
-    }
+    Produto merge(Produto produto);
 
-    @DELETE
-    @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-    public void remove(@QueryParam("id") Long id) {
-        produtoRepository.remove(id);
-    }
+    void remove(Long id);
 
 }
