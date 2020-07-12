@@ -40,7 +40,7 @@
         <security-realms>
             <security-realm name="ManagementRealm">
                 <authentication>
-                    <local default-user="$local" skip-group-loading="true"/>
+                    <local default-customer="$local" skip-group-loading="true"/>
                     <properties path="mgmt-users.properties" relative-to="jboss.server.config.dir"/>
                 </authentication>
                 <authorization map-groups-to-roles="false">
@@ -54,7 +54,7 @@
                     </ssl>
                 </server-identities>
                 <authentication>
-                    <local default-user="$local" allowed-users="*" skip-group-loading="true"/>
+                    <local default-customer="$local" allowed-users="*" skip-group-loading="true"/>
                     <properties path="application-users.properties" relative-to="jboss.server.config.dir"/>
                 </authentication>
                 <authorization>
@@ -85,7 +85,7 @@
             <role-mapping>
                 <role name="SuperUser">
                     <include>
-                        <user name="$local"/>
+                        <customer name="$local"/>
                     </include>
                 </role>
             </role-mapping>
@@ -149,7 +149,7 @@
                     <connection-url>jdbc:mysql://localhost:3306/restjavaee?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</connection-url>
                     <driver>mysql</driver>
                     <security>
-                        <user-name>root</user-name>
+                        <customer-name>root</customer-name>
                         <password>root</password>
                     </security>
                 </datasource>
@@ -245,7 +245,7 @@
                 </security-domain>
                 <security-domain name="ManagementDomain" default-realm="ManagementRealm" permission-mapper="default-permission-mapper">
                     <realm name="ManagementRealm" role-decoder="groups-to-roles"/>
-                    <realm name="local" role-mapper="super-user-mapper"/>
+                    <realm name="local" role-mapper="super-customer-mapper"/>
                 </security-domain>
             </security-domains>
             <security-realms>
@@ -272,7 +272,7 @@
                 </simple-permission-mapper>
                 <constant-realm-mapper name="local" realm-name="local"/>
                 <simple-role-decoder name="groups-to-roles" attribute="groups"/>
-                <constant-role-mapper name="super-user-mapper">
+                <constant-role-mapper name="super-customer-mapper">
                     <role name="SuperUser"/>
                 </constant-role-mapper>
             </mappers>
@@ -315,7 +315,7 @@
                 </sasl-authentication-factory>
                 <configurable-sasl-server-factory name="configured" sasl-server-factory="elytron">
                     <properties>
-                        <property name="wildfly.sasl.local-user.default-user" value="$local"/>
+                        <property name="wildfly.sasl.local-customer.default-customer" value="$local"/>
                     </properties>
                 </configurable-sasl-server-factory>
                 <mechanism-provider-filtering-sasl-server-factory name="elytron" sasl-server-factory="global">

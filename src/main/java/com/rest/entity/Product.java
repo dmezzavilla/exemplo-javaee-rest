@@ -2,20 +2,18 @@ package com.rest.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author Daniel Mezzavilla
  */
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Produto implements Serializable {
+@Entity
+public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -24,8 +22,11 @@ public class Produto implements Serializable {
     @Setter(AccessLevel.NONE)
     private Long id;
 
-    private String fabricante;
-    private String tipo;
-    private String modelo;
+    private String manufacturer;
+    private String model;
+    private String type;
+
+//    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+//    private List<Category> category;
 
 }

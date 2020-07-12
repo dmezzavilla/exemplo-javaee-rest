@@ -1,8 +1,7 @@
 package com.rest.controller;
 
-import com.rest.entity.Produto;
-import com.rest.repository.ProdutoRepository;
-import com.rest.service.ProdutoService;
+import com.rest.entity.Product;
+import com.rest.service.ProductService;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -13,50 +12,50 @@ import java.util.List;
 /**
  * @author Daniel Mezzavilla
  */
-@Path("/produto")
-public class ProdutoController {
+@Path("/product")
+public class ProductController {
 
     @Inject
-    ProdutoService produtoService;
+    ProductService productService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-    public List<Produto> findAll() {
-        return produtoService.findAll();
+    public List<Product> findAll() {
+        return productService.findAll();
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")
-    public Response persist(Produto produto) {
-        return Response.ok(produtoService.persist(produto), MediaType.APPLICATION_JSON).build();
+    public Response persist(Product product) {
+        return Response.ok(productService.persist(product), MediaType.APPLICATION_JSON).build();
     }
 
     @GET
     @Path("/findBy/{id}")
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-    public Produto findById(@PathParam("id") Long id) {
-        return produtoService.findById(id);
+    public Product findById(@PathParam("id") Long id) {
+        return productService.findById(id);
     }
 
     @GET
     @Path("/findLike/{id}")
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-    public List<Produto> findLike(@PathParam("id") Long id) {
-        return produtoService.findLike();
+    public List<Product> findLike(@PathParam("id") Long id) {
+        return productService.findLike();
     }
 
     @PUT
     @Path("/update")
     @Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")
-    public Response merge(Produto produto) {
-        return Response.ok(produtoService.merge(produto), MediaType.APPLICATION_JSON).build();
+    public Response merge(Product product) {
+        return Response.ok(productService.merge(product), MediaType.APPLICATION_JSON).build();
     }
 
     @DELETE
     @Path("/delete/{id}")
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
     public void remove(@PathParam("id") Long id) {
-        produtoService.remove(id);
+        productService.remove(id);
     }
 
 }
