@@ -5,6 +5,8 @@ import com.rest.entity.Product;
 import com.rest.service.CategoryService;
 import com.rest.service.ProductService;
 
+import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -15,12 +17,14 @@ import java.util.List;
  * @author Daniel Mezzavilla
  */
 @Path("/product")
+@PermitAll
 public class ProductController {
 
     @Inject
     ProductService productService;
     @Inject
     CategoryService categoryService;
+    @Inject
 
     @GET
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
@@ -51,6 +55,7 @@ public class ProductController {
 
     @GET
     @Path("/findLike/{id}")
+    @RolesAllowed("admin")
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
     public List<Product> findLike(@PathParam("id") Long id) {
         return productService.findLike();
