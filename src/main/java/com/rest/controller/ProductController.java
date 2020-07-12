@@ -42,6 +42,14 @@ public class ProductController {
     }
 
     @GET
+    @Path("/findByCategory/{id}")
+    @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
+    public List<Product> findByCategory(@PathParam("id") Long id) {
+        Category category = categoryService.findById(id);
+        return productService.findByCategory(category);
+    }
+
+    @GET
     @Path("/findLike/{id}")
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
     public List<Product> findLike(@PathParam("id") Long id) {

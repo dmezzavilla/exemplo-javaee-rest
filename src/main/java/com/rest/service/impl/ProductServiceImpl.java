@@ -1,5 +1,6 @@
 package com.rest.service.impl;
 
+import com.rest.entity.Category;
 import com.rest.entity.Product;
 import com.rest.repository.ProdutcRepository;
 import com.rest.service.ProductService;
@@ -22,6 +23,11 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> findAll() {
         return produtcRepository.findAll();
+    }
+
+    @Override
+    public List<Product> findByCategory(Category category) {
+        return produtcRepository.findByCategory(category);
     }
 
     @Override

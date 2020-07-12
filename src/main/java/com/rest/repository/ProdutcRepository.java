@@ -1,5 +1,6 @@
 package com.rest.repository;
 
+import com.rest.entity.Category;
 import com.rest.entity.Product;
 
 import java.util.List;
@@ -16,6 +17,8 @@ public interface ProdutcRepository {
     List<Product> findLike();
 
     Product findById(Long id);
+
+    List<Product> findByCategory(Category category);
 
     Product merge(Product product);
 

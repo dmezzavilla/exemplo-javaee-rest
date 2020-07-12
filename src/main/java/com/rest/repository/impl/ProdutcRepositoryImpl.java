@@ -1,5 +1,6 @@
 package com.rest.repository.impl;
 
+import com.rest.entity.Category;
 import com.rest.entity.Product;
 import com.rest.repository.ProdutcRepository;
 
@@ -49,6 +50,14 @@ public class ProdutcRepositoryImpl implements ProdutcRepository {
     public Product findById(Long id) {
         return em.find(Product.class, id);
 
+    }
+
+    @Transactional
+    @Override
+    public List<Product> findByCategory(Category category) {
+        String jpql = "FROM Product p WHERE p.category = ?1";
+        TypedQuery<Product> query = em.createQuery(jpql, Product.class).setParameter(1, category);
+        return query.getResultList();
     }
 
     @Transactional
