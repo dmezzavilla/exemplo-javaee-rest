@@ -34,6 +34,7 @@ public class ProdutcRepositoryImpl implements ProdutcRepository {
 
     }
 
+    @Transactional
     @Override
     public List<Product> findLike() {
         String jpql = "FROM Product p WHERE p.manufacturer LIKE ?1" +

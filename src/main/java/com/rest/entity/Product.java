@@ -1,5 +1,6 @@
 package com.rest.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -26,7 +27,7 @@ public class Product implements Serializable {
     private String model;
     private String type;
 
-//    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-//    private List<Category> category;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Category category;
 
 }

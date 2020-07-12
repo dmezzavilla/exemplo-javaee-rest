@@ -5,6 +5,7 @@ import com.rest.repository.ProdutcRepository;
 import com.rest.service.ProductService;
 
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import java.util.List;
 
 public class ProductServiceImpl implements ProductService {
@@ -12,6 +13,7 @@ public class ProductServiceImpl implements ProductService {
     @Inject
     ProdutcRepository produtcRepository;
 
+    @Transactional
     @Override
     public Product persist(Product product) {
         return produtcRepository.persist(product);

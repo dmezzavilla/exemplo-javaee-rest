@@ -25,6 +25,12 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 
     @Transactional
     @Override
+    public Category findById(Long id) {
+        return em.find(Category.class, id);
+    }
+
+    @Transactional
+    @Override
     public List<Category> findAll() {
         String jpql = "FROM Category";
         TypedQuery<Category> query = em.createQuery(jpql, Category.class);

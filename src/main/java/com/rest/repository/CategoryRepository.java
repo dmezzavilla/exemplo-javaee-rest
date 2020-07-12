@@ -8,5 +8,7 @@ public interface CategoryRepository {
 
     Category persist(Category category);
 
+    Category findById(Long id);
+
     List<Category> findAll();
 }

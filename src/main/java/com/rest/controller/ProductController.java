@@ -1,6 +1,8 @@
 package com.rest.controller;
 
+import com.rest.entity.Category;
 import com.rest.entity.Product;
+import com.rest.service.CategoryService;
 import com.rest.service.ProductService;
 
 import javax.inject.Inject;
@@ -17,6 +19,8 @@ public class ProductController {
 
     @Inject
     ProductService productService;
+    @Inject
+    CategoryService categoryService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
